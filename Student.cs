@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 // student representerar en studerande. Den känner till vilka kurser den går via listan Courses.
 public class Student
 {
-    public string Name; { get; }
+    public string Name { get; }
     public List<Course> Courses { get; } = new List<Course>();
     public Student(string name)
     {
@@ -29,32 +28,29 @@ public class Student
             Console.WriteLine(" (inga kurser)");
             return;
         }
+        foreach (var c in Courses)
+        {
+            Console.WriteLine($"  - {c.Name}");
+        }
     }
 
-foreach (var c in Courses)
-{
-    Console.WriteLine($"  - {c.Name}");
-}
-}
-
-public override string ToString()
-{
-    return Name;
-}
-
-// internal betyder att metoden bara kan anropas från kod i samma projekt(i praktiken; bara av Course). Det är medvetet - ingen utomstående kod ska kunna lägga till en kurs i en studerandes lista utan att gå via Course.
-internal void AddCourse(Course course)
-{
-    // detta är extra skydd mot dubletter, ifall något annat än Course.Enroll någon gång skulle anropa denna.
-    if (!course.Contains(course))
+    public override string ToString()
     {
-        Courses.Add(course);
+        return Name;
     }
-}
 
-internal void RemoveCourse(Course course)
+    // internal betyder att metoden bara kan anropas från kod i samma projekt(i praktiken; bara av Course). Det är medvetet - ingen utomstående kod ska kunna lägga till en kurs i en studerandes lista utan att gå via Course.
+    internal void AddCourse(Course course)
+    {
+        // detta är extra skydd mot dubletter, ifall något annat än Course.Enroll någon gång skulle anropa denna.
+        if (!Courses.Contains(course))
+        {
+            Courses.Add(course);
+        }
+    }
 
-{
-    Courses.Remove(course);
-}
+    internal void RemoveCourse(Course course)
+    {
+        Courses.Remove(course);
+    }
 }
