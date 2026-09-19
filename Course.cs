@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-
 public class Course
 {
     public string Name { get; } // detta gör så att varje kurs har ett eget namn

@@ -14,12 +14,12 @@ var carla = new Student("Carla");
 Console.WriteLine("=== Anmälan (från olika håll) ===");
 matte.Enroll(abodi); // Anmälan via kursen.
 bob.Join(matte); // Anmälan via studerande
-carla.join(matte); // ska uppge att kursen är full
+carla.Join(matte); // ska uppge att kursen är full
 
 Console.WriteLine();
 Console.WriteLine("=== Fler anmälningar ===");
-abodi.join(fysik);
-bob.join(Fysik);
+abodi.Join(fysik);
+bob.Join(fysik);
 
 Console.WriteLine();
 Console.WriteLine("=== Status just nu ===");
@@ -28,7 +28,7 @@ Console.WriteLine(fysik);
 
 Console.WriteLine();
 matte.RollCall();
-fysik.Rollcall();
+fysik.RollCall();
 
 Console.WriteLine();
 abodi.Schedule();
@@ -45,7 +45,7 @@ Console.WriteLine();
 Console.WriteLine("=== Status efteravanmälan ===");
 Console.WriteLine(matte);
 Console.WriteLine(fysik);
-matte.Rollcall();
-fysik.Rollcall();
+matte.RollCall();
+fysik.RollCall();
 abodi.Schedule();
 bob.Schedule();
